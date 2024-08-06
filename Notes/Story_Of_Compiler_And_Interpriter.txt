@@ -1,0 +1,112 @@
+java cha jo code ahe to kasa run hoto
+												    JVM
+											|-----------------|
+				|----------|	BYTE CODE 	| [SM]  [MM]  [GC]|		|-----|		|-------|		|-----------|
+Demo.java ----  | Compiler | --------------	|	[TM] .....n]  |-----|  OS |-----|  CPU	|-------| 	OUTPUT	|
+				|----------|	Compiled	| JIT+interpriter |		|-----|		|-------|		|-----------|ભ
+								Code 		|-----------------|
+
+SM : Security Manager
+MM : Memory Management
+GC : Garbage Collector
+TM : Threade Manager
+JIT : Just In Time (Interpriter)
+
+
+
+Q) Why Java Compiled Code is Called BYTE CODE?
+->
+	Code Madhla Pratyak Instruction ha 1-Byte cha chunk(box) madhe divide hoto
+
+		ex : [cafe babe] 0000 0041 001f 0a00 0200 0307
+
+	~Byte Code is divided in 8 bits Therefor it is called Byte code 
+
+
+
+Q) Jr Apan C cha compiled code (a.exe/a.out) ch nav badlun Demo.class kela tr?
+->
+	[SM] : Check karto ki ji file ($ java Demo)  hi class file Aplich ahe ka...
+
+Q) Te kasa kasa kalta [SM] la?
+-> Java la Kasa Kalta Konti file kaschyachi ahe?
+	-> Tyachya .extensition varun?
+		-> Wrong....
+			-> Tyachya File Header madhe magic number baghitla jato. Jr to Match jhala tr to code JVM la kalta Aplach ahe
+
+				[cafe babe] ===== Hexa Decimal			90's Brain
+
+
+
+
+Q) Java Code Is Machine Indipendent Right?
+->	
+	Yes, Java Code is Machine InDepinded/ OS Independed.
+	But Java JDK is Machine Depended
+
+		Because To Run Java Code We Need JDK(JVM) To C madhe lihla so (.exe/.out)
+
+
+
+
+Q) What is JIT?
+->	
+	Just In Time Compiler
+
+	All Says java has 2 Compiler
+		But we Say Java Has 3 Compiler
+
+	JIT + Interpriter 
+
+	Dogh Milun Java Cha COde Run Kartat
+
+Q) Why JIT?
+-> 
+	Java la Kalla Te kuth Tri maghe padat ahet
+
+
+>Code Without JIT (Time Complaxity)
+	
+	
+		code 								Translate 			Execuite
+-----------------------------------------------------------------------------
+
+	s.o.p("FY"); 								1 					1
+	s.o.p("SY"); 								1 					1
+
+	for(int i=0; i<10; i++)
+	{
+		s.o.p("TY");  							10 					10
+	}
+
+
+TOTAL =====================================================================	24
+
+
+--
+
+
+>Code With JIT (Time Complaxity)
+	
+	
+		code 								Translate 			Execuite
+-----------------------------------------------------------------------------
+
+	s.o.p("FY"); 								1 					1
+	s.o.p("SY"); 								1 					1
+
+	for(int i=0; i<10; i++)
+	{
+		s.o.p("TY");  							1 					10
+	}
+
+
+TOTAL =====================================================================	15
+
+
+Just In Time Ky Karta
+						Tr he Code Translet karta tithlya tithe
+						Manje?
+						-> loop madhe je Print kelay tyacha byte code same ch asnar na 10 vela
+							Tr mg parat ka translate karaycha
+							to parat parat translet hot nahi fkta execute hoto Interpriter chya ani JIT chya help ne
