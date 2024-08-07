@@ -1,0 +1,63 @@
+In java Application We Can Take Input From user,file,etc. TWO ways
+
+
+
+--Je ky input devices madhun yet Application madhe te STRING(set of characters(Bytes)) format madhe yt
+
+
+1.First Way Of Taking Input From User
+->
+	Java is true Object Oriented PL
+
+	Create a Object of class BufferedReader
+
+	Exception Handle Karav Lagta
+
+	"BufferedReader" is like JCB ch KHORA jasa ki Khora Mati Pn Uchalta ani sangitla tr Sona(gold) pn uchalta
+				-> Keyboard Kadhun input Ghyach kiva Pudh Juab File Madhun input ghene
+
+	BufferReader br = new BufferReader( new InputStreamReader( System.in ) );
+
+	Taking Input From Keyboard
+	->
+		int a = Integer.parseInt( br.readLine() );
+		float b = Float.parseFloat( br.readLine() );
+
+2.Second Way of Taking Input From User
+->
+	Java is true Object Oriented PL
+
+	Create a Object of class Scanner
+
+	required Pacakage "java.util.Scanner"
+
+	"Scanner" fakta inputDecices madhun data ghenar
+
+	Exception Handle nahi Karav Lagat Karan Te inbuild ahe
+	Conversion pn nahi karava lagat te pn inbuild ahe + readLine pn Inbuild ahe
+	Just call functions
+
+	Scanner sc = new Scanner( System.in );
+
+	int a = sc.nextInt();
+	float b = sc.nextFloat();
+
+
+Q) Difference Between BefferedReader AND Scanner
+
+		
+		BufferedReader							Scanner
+------------------------------------------------------------------
+1. BR internally use 8KB				1. SC internally use 1KB
+2. Motha Khora							2. Chota Khora
+3. Bit Faster							3. Bit Slower
+
+			Inteview Changer point if Not pro Then Dont tell This
+
+4. MultiThreading asel tr 				4. You Cannnot use if MultiThreading is there
+   compulsory use BR
+
+5. It is Synchronized					5. It is NOT Synchronized
+
+	Synchronized = at a time there are multiple threades but when it is synchronized the eka velis ekch jn
+	(Toilet)
