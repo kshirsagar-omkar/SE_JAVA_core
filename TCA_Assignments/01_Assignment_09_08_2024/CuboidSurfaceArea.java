@@ -23,30 +23,30 @@ public class CuboidSurfaceArea
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		
 		/* Variables For Calculating And Storing Results */
-		float length_of_cuboid = 0;
-		float breadth_of_cuboid = 0;
-		float height_of_cuboid = 0;
-		float surface_area_of_cuboid = 0;
+		float lengthOfCuboid = 0;
+		float breadthOfCuboid = 0;
+		float heightOfCuboid = 0;
+		float surfaceAreaOfCuboid = 0;
 
 		/*Accepting Values For Further Calculations*/
 		System.out.print("Enter Length of a Cuboid : ");
-		length_of_cuboid = Float.parseFloat( br.readLine() );
+		lengthOfCuboid = Float.parseFloat( br.readLine() );
 
 		System.out.print("Enter Breadth of a Cuboid : ");
-		breadth_of_cuboid = Float.parseFloat( br.readLine() );
+		breadthOfCuboid = Float.parseFloat( br.readLine() );
 
 		System.out.print("Enter Height of a Cuboid : ");
-		height_of_cuboid = Float.parseFloat( br.readLine() );
+		heightOfCuboid = Float.parseFloat( br.readLine() );
 
-		if( length_of_cuboid <= 0 || breadth_of_cuboid <= 0 || height_of_cuboid <= 0 )
+		if( lengthOfCuboid <= 0 || breadthOfCuboid <= 0 || heightOfCuboid <= 0 )
 		{
 			System.out.println("Invalid Inputs Check Again!!!");
 		}
 		else
 		{
 			/*Calculating Surface Area of Cuboid*/
-			surface_area_of_cuboid = 2 * ( (length_of_cuboid*breadth_of_cuboid) + (length_of_cuboid*height_of_cuboid) + (breadth_of_cuboid*height_of_cuboid) );
-			System.out.println("Surface Area of Cuboid : " + surface_area_of_cuboid);
+			surfaceAreaOfCuboid = 2 * ( (lengthOfCuboid*breadthOfCuboid) + (lengthOfCuboid*heightOfCuboid) + (breadthOfCuboid*breadthOfCuboid) );
+			System.out.println("Surface Area of Cuboid : " + surfaceAreaOfCuboid);
 		}
 
 

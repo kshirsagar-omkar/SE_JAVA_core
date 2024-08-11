@@ -23,31 +23,31 @@ public class AreaParameterOfRectangle
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		
 		/* Variables For Calculating And Storing Results */
-		float base_of_rectangle = 0; 
-		float height_of_rectangle = 0; 
-		float area_of_rectangle = 0;
-		float parameter_of_rectangle = 0;
+		float baseOfRectangle = 0; 
+		float heightOfRectangle = 0; 
+		float areaOfRectangle = 0;
+		float parameterOfRectangle = 0;
 
 		/*Accepting Values For Further Calculations*/
 		System.out.print("Enter Base (width) of Rectangle : ");
-		base_of_rectangle = Float.parseFloat( br.readLine() );
+		baseOfRectangle = Float.parseFloat( br.readLine() );
 
 		System.out.print("Enter Height (length) of Rectangle : ");
-		height_of_rectangle = Float.parseFloat( br.readLine() );
+		heightOfRectangle = Float.parseFloat( br.readLine() );
 
-		if(base_of_rectangle > 0 && parameter_of_rectangle > 0)
+		if(baseOfRectangle > 0 && parameterOfRectangle > 0)
 		{
 
 			/*Calculating Area Of Rectangle*/
-			area_of_rectangle = base_of_rectangle * height_of_rectangle;
+			areaOfRectangle = baseOfRectangle * heightOfRectangle;
 
 			/*Calculating Parameter Of Rectangle*/
-			parameter_of_rectangle = 2 * ( base_of_rectangle + height_of_rectangle );
+			parameterOfRectangle = 2 * ( baseOfRectangle + heightOfRectangle );
 
 			System.out.println();
 
-			System.out.println("Area of Rectangle 	: " + area_of_rectangle);
-			System.out.println("Parameter of Rectangle 	: " + parameter_of_rectangle);
+			System.out.println("Area of Rectangle 	: " + areaOfRectangle);
+			System.out.println("Parameter of Rectangle 	: " + parameterOfRectangle);
 		}
 		else 
 		{

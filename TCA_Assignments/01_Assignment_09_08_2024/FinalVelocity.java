@@ -23,15 +23,15 @@ public class FinalVelocity
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) ); 
 
 		/*Variables For Calculations*/
-		float initial_velocity = 0;
+		float initialVelocity = 0;
 		float acceleration = 0;
 		float time = 0;
-		float final_velocity = 0;
+		float finalVelocity = 0;
 
 
 		/*Accepting Values*/
 		System.out.print("Enter Initial Velocity(m/s) : ");
-		initial_velocity = Float.parseFloat( br.readLine() );
+		initialVelocity = Float.parseFloat( br.readLine() );
 
 		System.out.print("Enter Acceleration(m/s^2)   : ");
 		acceleration = Float.parseFloat( br.readLine() );
@@ -41,22 +41,22 @@ public class FinalVelocity
 
 
 		/*Calculating Final velocity*/
-		final_velocity = initial_velocity + ( acceleration * time );
+		finalVelocity = initialVelocity + ( acceleration * time );
 
 
 		/*FinalVelocity.java:44: error: non-static method calculatFinalVelocity(float,float,float) cannot be referenced from a static context
-          final_velocity = calculatFinalVelocity(initial_velocity, acceleration, time);*/
+          finalVelocity = calculatFinalVelocity(initialVelocity, acceleration, time);*/
 
 
 		/*Printing Final Velocity*/
-		System.out.print("\nFinal Velocity : " + final_velocity + " m/s");
+		System.out.print("\nFinal Velocity : " + finalVelocity + " m/s");
 
 		System.out.println();
 	}
 
 
-	/*static float calculatFinalVelocity(float initial_velocity, float acceleration, float time)
+	/*static float calculatFinalVelocity(float initialVelocity, float acceleration, float time)
 	{
-		return initial_velocity + ( acceleration * time );
+		return initialVelocity + ( acceleration * time );
 	}*/
 }

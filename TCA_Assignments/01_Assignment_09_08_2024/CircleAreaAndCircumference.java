@@ -21,26 +21,26 @@ public class CircleAreaAndCircumference
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		
 		float PI = Float.parseFloat("3.14");
-		float circlr_radious = 0;
-		float circlr_area = 0;
-		float circlr_circumference = 0;
+		float circleRadious = 0;
+		float circleArea = 0;
+		float circleCircumference = 0;
 
 
 		/*Accepting Values : */
 		System.out.print("Enter Radios of : ");
-		circlr_radious = Float.parseFloat( br.readLine() );
+		circleRadious = Float.parseFloat( br.readLine() );
 		
 
 
 		/*Calculating Area And Circumference*/
-		circlr_area = PI * circlr_radious * circlr_radious;
-		circlr_circumference = 2 * circlr_radious * PI;
+		circleArea = PI * circleRadious * circleRadious;
+		circleCircumference = 2 * circleRadious * PI;
 
 
 		/*Displaying Results*/
 		System.out.println("\n");
-		System.out.println("Area Of a Circle          : " + circlr_area);
-		System.out.println("Circumference Of a Circle : " + circlr_circumference);
+		System.out.println("Area Of a Circle          : " + circleArea);
+		System.out.println("Circumference Of a Circle : " + circleCircumference);
 		System.out.println("\n");
 	}
 }
