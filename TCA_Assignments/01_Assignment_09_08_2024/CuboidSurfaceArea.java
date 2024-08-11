@@ -14,7 +14,7 @@
 import java.io.*;
 
 
-public class Cuboid_Surface_Area
+public class CuboidSurfaceArea
 {
 	public static void main(String []args) throws Exception
 	{
