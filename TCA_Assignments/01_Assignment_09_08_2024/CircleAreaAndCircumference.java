@@ -20,7 +20,7 @@ public class CircleAreaAndCircumference
 
 		BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
 		
-		float PI = Float.parseFloat("3.14");
+		float PI = 3.14f;
 		float circleRadious = 0;
 		float circleArea = 0;
 		float circleCircumference = 0;

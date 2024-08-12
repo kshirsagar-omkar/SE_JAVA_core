@@ -25,7 +25,7 @@ public class CylenderSurfaceAreaAndVolume
 
 
 		/*Variables For Calculations*/
-		float PI = Float.parseFloat("3.14159265359");
+		float PI = 3.14f;
 		float CylenderRadius = 0;
 		float CylenderHeight = 0;
 		float CylenderSurfaceArea = 0;
