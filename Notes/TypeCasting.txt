@@ -1,0 +1,40 @@
+
+
+	float f = 3.14;				//Error Data Loose
+	->
+		float f = 3.14f;
+
+	Type Casting
+
+		double --> int 			//Error 	Data Loose
+		double --> float		//Error 	Data Loose
+
+	There Are Two Types of Type Casting
+
+	1) Automatically Done by Compiler/Interpriter is called as implicit Type Casting
+	->
+		int --> float 				//No Data Loose
+
+	2) Done by Devloper is called as Explicit Type Casting
+	->
+		int <-- int(3.14)
+	
+
+
+	*AutoBoxing
+	->
+		When int is assigned to object
+		Intiger obj = 11;				// Data Types --> Class Types
+	
+	
+	*Unboxing
+	->
+		When Object is Assigned to Data Type
+
+		Intiger obj(11);
+		int i = obj;
+
+		obj madhla thoda part ghenar ani to int i madhe thevnar
+
+		Class Types --> Data Types
+

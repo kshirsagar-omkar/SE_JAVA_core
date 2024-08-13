@@ -1,0 +1,19 @@
+
+
+	KeyWords
+
+	Public, Static, if
+		
+		These Are KeyWords
+			
+			**He ala ki Kahi tri action hotay
+
+	
+
+	RESERVE KEYWORDS
+
+		In Java There Are Only 3 Reserved KeyWords
+
+		true, false, null
+
+			**Yanchyat data/value ahe
