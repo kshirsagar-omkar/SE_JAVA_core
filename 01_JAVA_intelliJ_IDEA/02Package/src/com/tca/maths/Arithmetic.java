@@ -1,8 +1,13 @@
 package com.tca.maths;
 
 public class Arithmetic {
-    public double firstNumber = 0;
-    public double secondNumber = 0;
+    private double firstNumber = 0;
+    private double secondNumber = 0;
+
+    public Arithmetic() {
+        this.firstNumber = 0;
+        this.secondNumber = 0;
+    }
 
     public Arithmetic(double firstNumber, double secondNumber) {
         this.firstNumber = firstNumber;
@@ -23,5 +28,21 @@ public class Arithmetic {
 
     public double div(){
         return this.firstNumber / this.secondNumber;
+    }
+
+    public double getFirstNumber() {
+        return firstNumber;
+    }
+
+    public void setFirstNumber(double firstNumber) {
+        this.firstNumber = firstNumber;
+    }
+
+    public double getSecondNumber() {
+        return secondNumber;
+    }
+
+    public void setSecondNumber(double secondNumber) {
+        this.secondNumber = secondNumber;
     }
 }
