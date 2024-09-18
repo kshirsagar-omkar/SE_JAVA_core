@@ -3,6 +3,7 @@ package com.tca;
 import com.tca.maths.Arithmetic;
 
 public class Main {
+
     public static void main(String[] args) {
 
         double firstNumber = 3;
@@ -15,4 +16,5 @@ public class Main {
         System.out.println("Addition : " + ob1.add());
 
     }
+
 }
