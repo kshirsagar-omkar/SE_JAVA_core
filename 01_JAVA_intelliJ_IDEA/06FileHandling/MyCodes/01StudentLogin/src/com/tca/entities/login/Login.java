@@ -1,6 +1,7 @@
 package com.tca.entities.login;
 
 import com.tca.exceptions.InvalidLogin;
+import com.tca.exceptions.UserAlreadyExistsException;
 
 import java.io.*;
 
@@ -52,61 +53,88 @@ public class Login {
         this.userID = userID;
     }
 
-    public boolean validateLogin(String enteredUsername, String enteredPassword){
+    public boolean validateLogin(String enteredUsername, String enteredPassword) throws InvalidLogin {
 
-        boolean found=false;
-        BufferedReader br = new BufferedReader( loginDataBaseFile );
+        boolean found = false;
+        BufferedReader br = new BufferedReader(loginDataBaseFile);            //Creating Object to read line from file
+        String loginInfosLine = null;
 
-        while(true){
-
-            String loginInfoLine=null;
-
+        try {
+            while ((loginInfosLine = br.readLine()) != null) {
+                String[] loginIfo = loginInfosLine.split(" ");
+                if (loginIfo.length == 3 && loginIfo[1].equals(enteredUsername) && loginIfo[2].equals(enteredPassword)) {
+                    found = true;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("IOException occurred during reading from file: " + e.getMessage());
+        } finally {
             try {
-                loginInfoLine = br.readLine();
+                br.close();
             } catch (IOException e) {
-                System.out.println("IOException Occured During Reading line from File :" + e.getMessage());
-                e.printStackTrace();
+                System.out.println("IOException Occured While br.close [used for read line from file] " + e.getMessage());
             }
-            catch (Exception e){
-                System.out.println("Exception Occured During Reading line from File :" + e.getMessage());
-            }
-
-            if(loginInfoLine == null){
-                found = false;
-                break;
-            }
-
-            String loginInfo[] = loginInfoLine.split(" ");
-            if( loginInfo[1].equals(enteredUsername) && loginInfo[2].equals(enteredPassword) ){
-                found = true;
-                break;
-            }
-        }
-        try {
-            br.close();
-        }
-        catch (IOException e){
-            System.out.println("IOException Occured Closing br !!!! " + e.getMessage());
-        }
-        catch (NullPointerException e){
-            System.out.println("NullPointerException Occured Closing br !!!! " + e.getMessage());
-        }
-        catch (Exception e){
-            System.out.println("Exception Occured Closing br !!!! " + e.getMessage());
         }
 
-        try {
-            if(found == false){
-                throw new InvalidLogin("Username & Password Does Not Match!!!");
+        if (!found) {
+            throw new InvalidLogin("Username & Password Does Not Match!!!");
+        }
+
+        return found;
+    }
+
+
+
+    public boolean signUp(String enteredUsername, String enteredPassword){
+        boolean isUserExists = false;
+
+        try{
+            if(userExist((enteredUsername))){
+                isUserExists = false;
             }
         }
-        catch (InvalidLogin e){
-            System.out.println(e.getMessage());
-        }
-        finally {
-            return found;
+        catch (UserAlreadyExistsException e){
+
         }
     }
+
+
+
+
+
+
+    //Checking If the user is already exist or not
+    public boolean userExist(String userName)throws UserAlreadyExistsException{
+        boolean found = false;
+        BufferedReader br = new BufferedReader(loginDataBaseFile);            //Creating Object to read line from file
+        String loginInfosLine = null;
+
+        try {
+            while ((loginInfosLine = br.readLine()) != null) {
+                String[] loginIfo = loginInfosLine.split(" ");
+                if (loginIfo.length == 3 && loginIfo[1].equals(userName) ) {
+                    found = true;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("IOException occurred during reading from file: " + e.getMessage());
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                System.out.println("IOException Occured While br.close [used for read line from file] " + e.getMessage());
+            }
+        }
+
+        if (!found) {
+            throw new UserAlreadyExistsException("UserAlreadyExistsException : " + userName);
+        }
+
+        return found;
+    }
+
 
 
     static public void closeLoginDataBaseFile() {
