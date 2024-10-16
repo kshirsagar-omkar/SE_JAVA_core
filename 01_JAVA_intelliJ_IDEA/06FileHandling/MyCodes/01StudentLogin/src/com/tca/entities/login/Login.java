@@ -1,7 +1,7 @@
 package com.tca.entities.login;
 
-import com.tca.exceptions.InvalidLogin;
-import com.tca.exceptions.UserAlreadyExistsException;
+import com.tca.exceptions.InvalidLoginException;
+import com.tca.exceptions.signup.UserAlreadyExistsException;
 
 import java.io.*;
 
@@ -13,7 +13,7 @@ public class Login {
 
     static {
         try {
-            String path = "/home/omkar/Documents/omkar/SE_JAVA_(core)/01_JAVA_intelliJ_IDEA/06FileHandling/MyCodes/01StudentLogin/src/com/tca/loginDataBase.txt";
+            String path = "src/com/tca/loginDataBase.txt";
 
             if( !  ( new File(path).isFile() )   ){
                 throw new FileNotFoundException("Given Path is not a File");
@@ -21,7 +21,7 @@ public class Login {
 
             loginDataBaseFile = new FileReader(path);
 
-            System.out.println("--File Opened Successfully!!--\n");
+//            System.out.println("--File Opened Successfully!!--\n");
 
         } catch (FileNotFoundException e) {
             System.out.println("FileNotFoundException + " + e.getLocalizedMessage() + "\n using Default loginDataBaseFile = null!! ");
@@ -53,7 +53,9 @@ public class Login {
         this.userID = userID;
     }
 
-    public boolean validateLogin(String enteredUsername, String enteredPassword) throws InvalidLogin {
+
+    @SuppressWarnings("CallToPrintStackTrace")
+    public boolean validateLogin(String enteredUsername, String enteredPassword) throws InvalidLoginException {
 
         boolean found = false;
         BufferedReader br = new BufferedReader(loginDataBaseFile);            //Creating Object to read line from file
@@ -67,9 +69,15 @@ public class Login {
                     break;
                 }
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("IOException occurred during reading from file: " + e.getMessage());
-        } finally {
+        }
+        catch (Exception e){
+            System.out.println("Exception occurred during reading from file: " + e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
             try {
                 br.close();
             } catch (IOException e) {
@@ -78,25 +86,10 @@ public class Login {
         }
 
         if (!found) {
-            throw new InvalidLogin("Username & Password Does Not Match!!!");
+            throw new InvalidLoginException("Username & Password Does Not Match!!!");
         }
 
         return found;
-    }
-
-
-
-    public boolean signUp(String enteredUsername, String enteredPassword){
-        boolean isUserExists = false;
-
-        try{
-            if(userExist((enteredUsername))){
-                isUserExists = false;
-            }
-        }
-        catch (UserAlreadyExistsException e){
-
-        }
     }
 
 
@@ -140,7 +133,7 @@ public class Login {
     static public void closeLoginDataBaseFile() {
         try {
             loginDataBaseFile.close();
-            System.out.println("\n--FIle Closed Successfully!!! --");
+//            System.out.println("\n--FIle Closed Successfully!!! --");
         }
         catch (NullPointerException e){
             System.out.println("NullPointerException!! "+e.getMessage());
