@@ -62,6 +62,5 @@ public class WriteEvenNumberIntoFile {
             System.out.println("Exception while writing to the file : " + e.getMessage());
             e.printStackTrace();
         }
-
     }
 }

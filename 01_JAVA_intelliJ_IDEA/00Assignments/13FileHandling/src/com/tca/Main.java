@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-
         Integer []arr = new Integer[args.length];
 
         for(int i=0; i < args.length; ++i){
