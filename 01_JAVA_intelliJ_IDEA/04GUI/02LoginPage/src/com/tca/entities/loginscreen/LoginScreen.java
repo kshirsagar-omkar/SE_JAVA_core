@@ -100,8 +100,9 @@ public class LoginScreen extends JFrame implements ActionListener {
     private void validateUser(String username, String password){
         if(username.equals("om") && password.equals("123"))
         {
+            this.dispose(); //This will close the current screen
             JOptionPane.showMessageDialog(null, "Login Successfull!!!");
-            System.exit(0);
+            //create a nextScreen Object to redirect there for eg., new HomeScree()
         }
         else {
             JOptionPane.showMessageDialog(null, "Wrong Username or Password!!!");
