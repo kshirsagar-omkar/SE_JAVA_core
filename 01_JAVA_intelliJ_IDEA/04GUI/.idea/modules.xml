@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/02LoginPage/02LoginPage.iml" filepath="$PROJECT_DIR$/02LoginPage/02LoginPage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03SubStringOccurenceInString/03SubStringOccurenceInString.iml" filepath="$PROJECT_DIR$/03SubStringOccurenceInString/03SubStringOccurenceInString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/04GUI.iml" filepath="$PROJECT_DIR$/.idea/04GUI.iml" />
+    </modules>
+  </component>
+</project>
