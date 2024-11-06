@@ -31,7 +31,10 @@ public class App {
 
 
 
+
 /*
+//      TEST CODES :
+
 
 //      1. Adding a single Student record into student database file
 
@@ -51,7 +54,7 @@ public class App {
 
 
 
-//      2. Adding Multiple records into studnet database file
+//      2. Adding Multiple records into student database file
 
         List<Student> listOfStudents = new ArrayList<>();
         listOfStudents.add(new Student(101,"AAA",90.01));
@@ -65,8 +68,19 @@ public class App {
             System.out.println("Error While Writing Student's Data To File : " + e.getMessage());
             e.printStackTrace();
         }
-*/
 
+
+
+//      3. retrieve all students records in List
+        List<Student> students = StudentOperation.getAllStudents();
+        for (Student student : students){
+            System.out.println(student);
+        }
+
+
+
+
+*/
     }
 
 
