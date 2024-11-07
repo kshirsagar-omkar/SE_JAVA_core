@@ -136,6 +136,10 @@ public class StudentOperation {
             }
             return students;
         }
+        catch (FileNotFoundException e){
+            System.out.println("File not found : " + e.getMessage());
+            e.printStackTrace();
+        }
         catch (IOException e){
             System.out.println(e.getMessage());
             e.printStackTrace();
@@ -163,6 +167,48 @@ public class StudentOperation {
             }
         }
         return null;
+    }
+
+
+
+
+    /**
+     * Deletes a student record from the student database file based on their roll number.
+     *
+     * <p>This method retrieves all students, searches for a match by roll number,
+     * removes the student from the list, deletes the existing file, recreates it,
+     * and saves all remaining student records back to the database.
+     * Any file-related errors are handled internally and logged to the console.</p>
+     *
+     * @param studentRollNumber the roll number of the student to delete from the database
+     * @return {@code true} if the student record is successfully deleted; {@code false} if the record is not found or an error occurs
+     * @since 1.0
+     */
+    public static boolean deleteStudent(Integer studentRollNumber){
+        List<Student> students = StudentOperation.getAllStudents();
+
+        if(students != null && !students.isEmpty()) {
+
+            for (Student student : students) {
+
+                if (studentRollNumber == student.getStudentRollNo()){
+                    students.remove(student);
+                    try {
+                        File file = new File(pathForStudentDatabaseFile);
+                        if(file.delete() && file.createNewFile()) {
+                            StudentOperation.saveAll(students);
+                            return true;
+                        }
+                    }
+                    catch (IOException e){
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
 

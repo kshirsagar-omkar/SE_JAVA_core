@@ -21,8 +21,14 @@ public class App {
     public static void main(String[] args) {
 
 
-
-
+        Integer trno = 101;
+        boolean status = StudentOperation.deleteStudent(trno);
+        if(status){
+            System.out.println("Delete success : " + trno);
+        }
+        else {
+            System.out.println("Unable to delete : " + trno);
+        }
 
 
 
@@ -76,6 +82,25 @@ public class App {
         for (Student student : students){
             System.out.println(student);
         }
+
+
+
+
+//      3. search student in database
+        Integer trno = 109;
+        Student s = StudentOperation.searchStudent(trno);
+        if(s == null){
+            System.out.println("No Record found for roll number : " + trno);
+        }else{
+            System.out.println("Record found for roll number : " + trno);
+            System.out.println(s);
+        }
+
+
+
+
+
+
 
 
 
