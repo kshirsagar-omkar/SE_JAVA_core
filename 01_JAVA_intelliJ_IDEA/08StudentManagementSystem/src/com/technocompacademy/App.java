@@ -21,14 +21,7 @@ public class App {
     public static void main(String[] args) {
 
 
-        Integer trno = 101;
-        boolean status = StudentOperation.deleteStudent(trno);
-        if(status){
-            System.out.println("Delete success : " + trno);
-        }
-        else {
-            System.out.println("Unable to delete : " + trno);
-        }
+
 
 
 
@@ -98,10 +91,27 @@ public class App {
 
 
 
+//      4. delete student from student database
+        Integer trno = 101;
+        boolean status = StudentOperation.deleteStudent(trno);
+        if(status){
+            System.out.println("Delete success : " + trno);
+        }
+        else {
+            System.out.println("Unable to delete : " + trno);
+        }
 
 
 
-
+//      5.Update student record from student database
+        Student student = new Student(101,"ZZZ", 90.0);
+        boolean status = StudentOperation.updateStudent(student);
+        if(status){
+            System.out.println("Update success : " + student.getStudentRollNo());
+        }
+        else {
+            System.out.println("Unable to update : " + student.getStudentRollNo());
+        }
 
 
 

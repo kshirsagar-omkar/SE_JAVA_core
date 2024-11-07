@@ -86,8 +86,8 @@ public class StudentOperation {
 
         for (Student student : listOfStudents) {
            try {
-               if (StudentOperation.save(student)) {
-                   System.out.println("Data Added Successfully for Roll Number: " + student.getStudentRollNo());
+               if (!StudentOperation.save(student)) {
+                   System.out.println("Unable to add record for Roll Number: " + student.getStudentRollNo());
                }
            }
            catch (IllegalArgumentException e){
@@ -207,9 +207,50 @@ public class StudentOperation {
                 }
             }
         }
-
         return false;
     }
 
+
+    /**
+     * Update a student record in the student database file
+     *
+     * <p>This method searches for a student roll number. If a match is found, it updates
+     * the student's name and percentage, then rewrites the entire student database file
+     * with the updated list of student.</p>
+     *
+     * @param student the {@link Student} object containing the updated information
+     *                (roll number, name, and percentage) to applied in database.
+     * @return {@code true} if the student's record is successfully updated and saved;
+     *         {@code false} if the student is not found, no records exist, or an error occurs.
+     * @since 1.0
+     */
+    public static Boolean updateStudent(Student student){
+        List<Student> students = getAllStudents();
+        //If student records are not in database this will return false
+        if(students == null || students.isEmpty()){
+            return false;
+        }
+
+        for (Student ob : students){
+            if(student.getStudentRollNo() == ob.getStudentRollNo()){
+                ob.setStudentName( student.getStudentName() );
+                ob.setStudentPercentage(student.getStudentPercentage() );
+                //Logic to delete file and write all list again in file
+                try {
+                    File file = new File(pathForStudentDatabaseFile);
+                    if(file.delete() && file.createNewFile()){
+                        StudentOperation.saveAll(students);
+                        return true;
+                    }
+                }
+                catch (IOException e){
+                    System.out.println("Error while creating file : " + e.getMessage());
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
 
 }
