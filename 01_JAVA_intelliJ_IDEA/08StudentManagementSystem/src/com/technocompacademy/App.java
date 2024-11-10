@@ -1,17 +1,6 @@
 package com.technocompacademy;
 
 import com.technocompacademy.controller.HomeScreen;
-import com.technocompacademy.entities.students.Student;
-import com.technocompacademy.util.student.StudentOperation;
-import com.technocompacademy.view.AddStudentScreen;
-import com.technocompacademy.view.DeleteStudentScreen;
-import com.technocompacademy.view.DisplayStudentScreen;
-import com.technocompacademy.view.UpdateStudentScreen;
-
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * TechnoComAcademy Student Management System main application module.
@@ -29,6 +18,10 @@ public class App {
 
 
         new HomeScreen();
+
+
+        //Test Code For Application
+
 
 
 //        SwingUtilities.invokeLater(HomeScreen::new);
