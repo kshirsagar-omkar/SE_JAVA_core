@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.technocompacademy"},{"l":"com.technocompacademy.config"},{"l":"com.technocompacademy.controller"},{"l":"com.technocompacademy.entities.students"},{"l":"com.technocompacademy.util.student"},{"l":"com.technocompacademy.view"}];updateSearchResults();
