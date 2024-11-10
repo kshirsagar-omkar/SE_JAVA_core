@@ -8,6 +8,7 @@ import com.technocompacademy.view.DeleteStudentScreen;
 import com.technocompacademy.view.DisplayStudentScreen;
 import com.technocompacademy.view.UpdateStudentScreen;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +31,29 @@ public class App {
         new HomeScreen();
 
 
+//        SwingUtilities.invokeLater(HomeScreen::new);
+/*
+        The line SwingUtilities.invokeLater(HomeScreen::new); is used to ensure that the creation and
+        initialization of the HomeScreen GUI happens on the Event Dispatch Thread (EDT), which is
+        the main thread responsible for handling all Swing events and GUI updates.
+
+        Here's a breakdown:
+
+        Event Dispatch Thread (EDT): In Swing, all interactions with the GUI components (like creating,
+        updating, and modifying them) should be done on the EDT. This ensures thread safety, so there
+        are no unexpected behavior or visual glitches due to concurrency issues.
+
+        SwingUtilities.invokeLater: This method takes a Runnable (a task to run) and schedules it
+        to execute on the EDT. If the EDT is already running, the code inside invokeLater will wait until
+        the EDT is free.
+
+        HomeScreen::new: This is a method reference in Java that refers to the HomeScreen
+        constructor. It’s shorthand for creating a new Runnable that runs new HomeScreen()
+        when executed. It effectively starts the GUI by creating an instance of HomeScreen.
+
+        In short, SwingUtilities.invokeLater(HomeScreen::new); safely initializes the GUI on the
+        correct thread, preventing potential threading issues.
+*/
 
 
 
